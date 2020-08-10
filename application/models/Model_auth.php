@@ -33,7 +33,7 @@ class Model_auth extends CI_Model
 			if($query->num_rows() == 1) {
 				$result = $query->row_array();
 
-				$hash_password = password_hash($password, $result['password']);
+				$hash_password = md5($password, $result['password']);
 				if($hash_password === true) {
 					return $result;	
 				}
